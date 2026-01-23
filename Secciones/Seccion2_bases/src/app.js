@@ -1,17 +1,24 @@
 // const {emailTemplate}=require('./js-foundation/01-template');
 // require('./js-foundation/02-destructuring');
 // const { getUserById } = require('./js-foundation/03-callbacks');
-require('./js-foundation/05-factory');
+// const {buildMakePerson} = require('./js-foundation/05-factory');
+// const {getUuid,getAge}=require('./plugins');
 
-// console.log("Hola mundo desde app.js")
+const getPokemonById = require('./js-foundation/06-promises');
 
-// const id = 1;
+console.log(getPokemonById(1, (pokemon) => {
+    console.log({pokemon});
+}));
 
-// getUserById(id,
-//     (error, user) => {
-//         if (error) throw new Error(error);
-//         console.log('User found: ', user);
-//     }
-// )
 
-// console.log(emailTemplate);
+
+
+//! Referencia y uso de una factory function
+
+// const  makePerson = buildMakePerson({getUuid,getAge});
+
+// const obj = { name: 'Jhon', birthday: '10-10-1990' };
+
+// const jhon = makePerson(obj);
+
+// console.log(jhon);
