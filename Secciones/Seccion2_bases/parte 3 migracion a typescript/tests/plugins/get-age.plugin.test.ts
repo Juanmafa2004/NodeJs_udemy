@@ -19,7 +19,12 @@ describe('plugins/get-age.plugin', () => {
         expect(age).toBe(calulateAge);
     });
 
-    test('',()=>{
-        
+    test('getAge should return 0 years',()=>{
+        const spy = jest.spyOn(Date.prototype, 'getFullYear').mockReturnValue(2004); //ponemos un spy soobre la funcion prototype del Date 
+        // y la remplazamos por 2004 en el valor de retorno
+        const birthDate = '2004-05-14';
+        const age = getAge(birthDate);
+        expect(age).toBe(0);
+        expect(spy).toHaveBeenCalled(); //verificamos que el spy se haya llamado
     });
 });
